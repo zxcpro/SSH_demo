@@ -42,14 +42,11 @@ public class UserServiceImpl extends AbstractBaseService<User> implements IUserS
 		User user = userDao.queryByUsername(username);
 		if(user != null) {
 			String pwd = user.getPassword();
-			if(!password.trim().equals(pwd)) {
-				throw new PasswordNotCorrectException("abc");
+			if(password.trim().equals(pwd)) {
+				return user;
 			}
-		} else {
-			throw new UserNotExistException("abc");
 		}
-		
-		return user;
+		return null;
 	}
 
 }

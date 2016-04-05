@@ -8,12 +8,6 @@
     <constant name="struts.devMode" value="false" />
 	<constant name="struts.i18n.encoding" value="UTF8" />
 
-    <package name="user" namespace="/" extends="struts-default">
-    	<action name="userListAction" class="com.lqh.template.action.UserListAction" method="userList" >
-    		<result name="userList">/userList.jsp</result>
-    	</action>
-    </package>
-    
     <package name="exchange" namespace="/" extends="struts-default">
     	<action name="exchangeListAction" class="com.lqh.template.action.ExchangeListAction" method="exchangeList" >
     		<result name="exchangeList">/exchangeList.jsp</result>
@@ -21,6 +15,10 @@
     	<action name="addExchangeAction" class="com.lqh.template.action.AddExchangeAction" method="addExchange" >
     		<result name="success" type="redirectAction">exchangeListAction</result>
     	</action>
+		<action name="loginAction" class="com.lqh.template.action.LoginAction" method="login">
+			<result name="success" type="redirectAction">exchangeListAction</result>
+			<result name="login">/login.jsp</result>
+		</action>
     </package>
  	
 </struts>

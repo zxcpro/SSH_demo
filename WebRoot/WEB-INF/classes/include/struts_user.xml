@@ -17,5 +17,6 @@
     	<action name="addExchangeAction" class="com.lqh.template.action.AddExchangeAction" method="addExchange" >
     		<result name="success" type="redirectAction">exchangeListAction</result>
     	</action>
+
     </package>
 </struts>

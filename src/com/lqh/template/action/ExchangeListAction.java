@@ -9,7 +9,9 @@ import org.springframework.stereotype.Controller;
 
 import com.lqh.common.action.AbstractBaseAction;
 import com.lqh.template.model.Exchange;
+import com.lqh.template.model.User;
 import com.lqh.template.service.IExchangeService;
+import com.lqh.template.service.IUserService;
 
 @Controller(value = "exchangeListAction")
 @Scope("prototype")
@@ -17,11 +19,17 @@ public class ExchangeListAction extends AbstractBaseAction {
 
 	private static final long serialVersionUID = 1L;
 	private IExchangeService exchangeService;
+	private IUserService userService;
+
+	private User user;
 	
 	private List<Exchange> results;
 
 	
 	public String exchangeList() {
+		
+		user = (User)getSession().get("currentUser");
+		
 		results = exchangeService.queryAll();
 		return "exchangeList";
 	}
@@ -34,8 +42,21 @@ public class ExchangeListAction extends AbstractBaseAction {
 		this.results = results;
 	}
 	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	@Resource(name="exchangeService")
 	public void setExchangeService(IExchangeService exchangeService) {
 		this.exchangeService = exchangeService;
+	}
+	
+	@Resource(name="userService")
+	public void setUserService(IUserService userService) {
+		this.userService = userService;
 	}
 }

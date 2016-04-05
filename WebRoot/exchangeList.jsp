@@ -10,7 +10,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     <title>闲置物品交易网</title>
-    <title>My JSP 'index.jsp' starting page</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -23,6 +22,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
   	
+  	<c:if test="${user != null}">
+  		您好，亲爱的用户 <c:out value="${user.username}" />  <a href="publish.jsp">发布信息</a>
+  	</c:if>
+  	
+  	<c:if test="${user == null}">
+  		您好，亲爱的用户 <a href="login.jsp">登录</a>
+  	</c:if>
+  	
+  	
 	<table border="0">
 	<tr><td>标题</td><td>用户</td><td>电话</td><td>描述</td></tr>
 	<c:forEach items="${results}" var="result">
@@ -31,28 +39,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</tr>
 	</c:forEach>
 	</table>
-	
-<form name="addExchangeForm" method="post" action="/exchange/addExchangeAction">
-<table border="0">
- <tr>
- <td>标题：</td> 
- <td><input type="text" name="title"></td>
- </tr>
- <tr>
- <td>用户名：</td>
- <td><input type="text" name="name"></td>
- </tr>
- <tr>
- <td>电话： </td>
- <td><input type="text" name="mobile"></td>
- </tr>
- <tr>
- <td>描述： </td>
- <td><input type="text" name="description"></td>
- </tr>
- <tr><td><input type="Submit" value="发布"></td></tr>
-</table>
-</form>
 
 </body>
 </html>
