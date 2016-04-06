@@ -1,43 +1,66 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<title>登录/注册</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="images/login.js"></script>
+<link href="css/login2.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h1>信息发布</h1>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-  <head>
+<div class="login" style="margin-top:50px;">
     
-    <title>登录</title>
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-  </head>
-  
-  <body>
-
-	<form name="addExchangeForm" method="post" action="/exchange/addExchangeAction">
-		<table border="0">
-			<tr>
-				<td>标题：</td>
-				<td><input type="text" name="title"></td>
-			</tr>
-			<tr>
-				<td>用户名：</td>
-				<td><input type="text" name="name"></td>
-			</tr>
-			<tr>
-				<td>电话：</td>
-				<td><input type="text" name="mobile"></td>
-			</tr>
-			<tr>
-				<td>描述：</td>
-				<td><input type="text" name="description"></td>
-			</tr>
-			<tr>
-				<td><input type="Submit" value="发布"></td>
-			</tr>
-		</table>
-	</form>
-
-</body>
-</html>
+  <!--注册-->
+    <div class="qlogin" id="qlogin" style="display: block; ">
+   
+    <div class="web_login"><form name="form2" id="regUser" accept-charset="utf-8"  action="/exchange/addExchangeAction" method="post">
+        <ul class="reg_form" id="reg-ul">
+        	<div id="userCue" class="cue">请填写发布信息：</div>
+                <li>
+                    <label for="user"  class="input-tips2">标题：</label>
+                    <div class="inputOuter2">
+                        <input type="text" id="title" name="title" maxlength="16" class="inputstyle2"/>
+                    </div>
+                    
+                </li>
+                
+                <li>
+                <label for="passwd" class="input-tips2">电话：</label>
+                    <div class="inputOuter2">
+                        <input type="text" id="mobile"  name="mobile" maxlength="16" class="inputstyle2"/>
+                    </div>
+                    
+                </li>
+                <li>
+                <label for="passwd2" class="input-tips2">描述：</label>
+                    <div class="inputOuter2">
+                        <input type="text" id="description" name="description" maxlength="16" class="inputstyle2" />
+                    </div>
+                    
+                </li>
+                
+                <li>
+                    <div class="inputOuter2" style="display: none;">
+                        <input type="text" id="name" name="name" maxlength="10" class="inputstyle2" value="${currentUser.username}"/>
+                    </div>
+                   
+                </li>
+                
+                <li>
+                    <div class="inputArea">
+                        <input type="submit" style="margin-top:10px;margin-left:85px;" class="button_blue" value="发布"/>
+                    </div>
+                    
+                </li><div class="cl"></div>
+            </ul></form>
+           
+    
+    </div>
+   
+    
+    </div>
+    <!--注册end-->
+</div>
+</body></html>
