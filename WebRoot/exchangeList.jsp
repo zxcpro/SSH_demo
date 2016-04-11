@@ -1,44 +1,47 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html>
 <html>
-  <head>
-    <base href="<%=basePath%>">
-    <title>闲置物品交易网</title>
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-  </head>
-  
-  <body>
-  	
-  	<c:if test="${user != null}">
-  		您好，亲爱的用户 <c:out value="${user.username}" />  <a href="publish.jsp">发布信息</a>
-  	</c:if>
-  	
-  	<c:if test="${user == null}">
-  		您好，亲爱的用户 <a href="login.jsp">登录</a>
-  	</c:if>
-  	
-  	
-	<table border="0">
-	<tr><td>标题</td><td>用户</td><td>电话</td><td>描述</td></tr>
-	<c:forEach items="${results}" var="result">
-	<tr>
-		<td>${result.title}</td><td>${result.name}</td><td>${result.mobile}</td><td>${result.description}</td>
-	</tr>
-	</c:forEach>
-	</table>
-
+<head>
+<title>Flat Accordion Widget Flat Responsive Widget Template :: w3layouts</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Flat Accordion Widget Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href='//fonts.googleapis.com/css?family=Philosopher:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<!-- main -->
+		<div class="main">
+			<h1>闲置物品交易信息发布网</h1>
+			<section class="ac-container">
+				<div>
+					<input id="ac-1" name="accordion-1" type="checkbox" checked="true" disabled="true" />
+					<label for="ac-1" class="grid3">
+						<i></i>
+							<c:if test="${user != null}">
+								您好，亲爱的用户 <c:out value="${user.username}" />  <a href="publish.jsp">发布信息</a>
+	  						</c:if>
+						  	
+						  	<c:if test="${user == null}">
+  								您好，亲爱的用户 <a href="login.jsp">登录</a>
+  							</c:if>
+					</label>
+					<article class="ac-small">
+						<ul>
+							<c:forEach items="${results}" var="result">
+								<li>${result.title}  ${result.description}	${result.name}  ${result.mobile}</li>
+							</c:forEach>
+						</ul>
+					</article>
+				</div>
+			</section>
+		</div>
+	<!-- main -->
 </body>
 </html>
