@@ -148,10 +148,11 @@ body{
 }
 .ac-small ul li a{
 	font-size:14px;
-	color:#999;
+	color:#EA4335;
 	text-decoration:none;
 	text-transform: capitalize;
-	display: block;
+	float: right;
+    margin-right: 30px;
 }
 .grid1 i{
 	background: url(../images/1.png) no-repeat 0px 0px;

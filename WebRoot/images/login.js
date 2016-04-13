@@ -118,7 +118,7 @@ $(document).ready(function() {
 			return false;
 		}
 
-		if ($('#qq').val().length < 0 || $('#qq').val().length > 2) {
+		if ($('#qq').val().length < 0 || $('#qq').val().length > 8) {
 			$('#qq').focus().css({
 				border: "1px solid red",
 				boxShadow: "0 0 2px red"

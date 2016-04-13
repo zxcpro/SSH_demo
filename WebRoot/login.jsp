@@ -85,7 +85,7 @@
                 </li>
                 
                 <li>
-                 <label for="qq" class="input-tips2">年龄：</label>
+                 <label for="qq" class="input-tips2">学号：</label>
                     <div class="inputOuter2">
                        
                         <input type="text" id="qq" name="age" maxlength="10" class="inputstyle2"/>

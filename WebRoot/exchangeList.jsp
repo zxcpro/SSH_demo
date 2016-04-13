@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Flat Accordion Widget Flat Responsive Widget Template :: w3layouts</title>
+<title>闲置物品交易信息发布网</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -25,7 +25,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<label for="ac-1" class="grid3">
 						<i></i>
 							<c:if test="${user != null}">
-								您好，亲爱的用户 <c:out value="${user.username}" />  <a href="publish.jsp">发布信息</a>
+								您好，亲爱的 <c:out value="${user.nickname}" />  <a href="publish.jsp">发布信息</a>
 	  						</c:if>
 						  	
 						  	<c:if test="${user == null}">
@@ -35,7 +35,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<article class="ac-small">
 						<ul>
 							<c:forEach items="${results}" var="result">
-								<li>${result.title}  ${result.description}	${result.name}  ${result.mobile}</li>
+								<li>${result.title}  ${result.description}	${result.name}  ${result.mobile}
+								<c:if test="${user != null && user.username == result.name}">
+									&nbsp;&nbsp;<a href="deleteExchangeAction?exchangeId=${result.id}" >下线</a>
+								</c:if>
+								<c:if test="${user != null && user.username == 'admin'}">
+									&nbsp;&nbsp;<a href="deleteExchangeAction?exchangeId=${result.id}" >删除</a>
+								</c:if>
+								</li>
 							</c:forEach>
 						</ul>
 					</article>

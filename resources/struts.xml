@@ -15,6 +15,9 @@
     	<action name="addExchangeAction" class="com.lqh.template.action.AddExchangeAction" method="addExchange" >
     		<result name="success" type="redirectAction">exchangeListAction</result>
     	</action>
+    	<action name="deleteExchangeAction" class="com.lqh.template.action.DeleteExchangeAction" method="deleteExchange" >
+    		<result name="success" type="redirectAction">exchangeListAction</result>
+    	</action>
 		<action name="loginAction" class="com.lqh.template.action.LoginAction" method="login">
 			<result name="success" type="redirectAction">exchangeListAction</result>
 			<result name="login">/login.jsp</result>
